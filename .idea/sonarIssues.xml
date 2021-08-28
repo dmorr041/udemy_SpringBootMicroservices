@@ -33,6 +33,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/request/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/request/UserDetailsRequestModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/response/User.java">
           <value>
             <set />
@@ -49,6 +59,11 @@
           </value>
         </entry>
         <entry key="$USER_HOME$/ws_operationsexecution_mobile_carrier360Composite/src/main/java/com/jbhunt/carrier360/service/usercoreinfo/UserCoreInfoService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
           <value>
             <set />
           </value>

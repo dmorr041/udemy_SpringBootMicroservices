@@ -1,5 +1,6 @@
 package com.udemy_springboot_microservices.mobileappws.ui.controller;
 
+import com.udemy_springboot_microservices.mobileappws.ui.model.request.UserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -28,9 +29,16 @@ public class UserController {
     return "get users called with page = " + page + " and limit = " + limit + " and sorting method = " + sort;
   }
 
-  @PostMapping
-  public String createUser() {
-    return "create user called";
+  @PostMapping(consumes = {
+    MediaType.APPLICATION_XML_VALUE,
+    MediaType.APPLICATION_JSON_VALUE
+  }, produces = {
+    MediaType.APPLICATION_XML_VALUE,
+    MediaType.APPLICATION_JSON_VALUE
+  })
+  public ResponseEntity<User> createUser(@RequestBody UserDetailsRequestModel userDetails) {
+    User user = new User(userDetails.getFirstName(), userDetails.getLastName(), userDetails.getEmail());
+    return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
   @PutMapping
