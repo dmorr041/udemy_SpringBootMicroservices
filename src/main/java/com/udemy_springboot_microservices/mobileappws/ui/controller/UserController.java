@@ -12,6 +12,14 @@ public class UserController {
     return "get user called with userID = " + userID;
   }
 
+  @GetMapping
+  public String getUsers(
+    @RequestParam(value = "page") int page,
+    @RequestParam(value = "limit") int limit
+  ) {
+    return "get user was called for page " + page + " with limit of " + limit;
+  }
+
   @PostMapping
   public String createUser() {
     return "create user called";
