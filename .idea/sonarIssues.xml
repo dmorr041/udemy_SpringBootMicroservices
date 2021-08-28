@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/exceptions/ExceptionsHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/controller/UserController.java">
           <value>
             <set />
