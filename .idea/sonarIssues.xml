@@ -3,6 +3,26 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Maven.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/MobileAppWsApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/Dummy.txt">
           <value>
             <set />
