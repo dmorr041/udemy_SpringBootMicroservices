@@ -8,17 +8,23 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("users")   // http:localhost:8080/users
 public class UserController {
 
+  // Temporary solution when you don't want to spin up and connect a DB
+  Map<String, User> users;
+
   // http:localhost:8080/users/{userID}
   @GetMapping(path = "/{userID}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
   public ResponseEntity<User> getUser(@PathVariable String userID) {
-    User user = new User("Quinn", "Morrison", "dmorr041@fiu.edu");
-    return new ResponseEntity<>(user, HttpStatus.OK);
-
+    return (users.containsKey(userID)
+      ? new ResponseEntity<>(users.get(userID), HttpStatus.OK)
+      : new ResponseEntity<>(HttpStatus.NO_CONTENT));
   }
 
   // http://localhost:8080/users?page={page}&limit={limit}&sort={sort}
@@ -31,6 +37,7 @@ public class UserController {
     return "get users called with page = " + page + " and limit = " + limit + " and sorting method = " + sort;
   }
 
+  // http://localhost:8080/users
   @PostMapping(consumes = {
     MediaType.APPLICATION_XML_VALUE,
     MediaType.APPLICATION_JSON_VALUE
@@ -39,7 +46,14 @@ public class UserController {
     MediaType.APPLICATION_JSON_VALUE
   })
   public ResponseEntity<User> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
-    User user = new User(userDetails.getFirstName(), userDetails.getLastName(), userDetails.getEmail());
+    String userID = UUID.randomUUID().toString();
+    User user = new User(userDetails.getFirstName(), userDetails.getLastName(), userDetails.getEmail(), userID);
+
+    if(users == null) {
+      users = new HashMap<>();
+    }
+    users.put(userID, user);
+
     return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
