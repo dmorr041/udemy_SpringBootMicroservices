@@ -1,5 +1,6 @@
 package com.udemy_springboot_microservices.mobileappws.ui.controller;
 
+import com.udemy_springboot_microservices.mobileappws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.request.UserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class UserController {
   // Temporary solution when you don't want to spin up and connect a DB
   Map<String, User> users;
 
-  // http:localhost:8080/users/{userID}
+  // GET @ http:localhost:8080/users/{userID}
   @GetMapping(path = "/{userID}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
   public ResponseEntity<User> getUser(@PathVariable String userID) {
     return (users.containsKey(userID)
@@ -27,7 +28,7 @@ public class UserController {
       : new ResponseEntity<>(HttpStatus.NO_CONTENT));
   }
 
-  // http://localhost:8080/users?page={page}&limit={limit}&sort={sort}
+  // GET @ http://localhost:8080/users?page={page}&limit={limit}&sort={sort}
   @GetMapping
   public String getUsers(
     @RequestParam(value = "page", defaultValue = "1") int page,
@@ -37,7 +38,7 @@ public class UserController {
     return "get users called with page = " + page + " and limit = " + limit + " and sorting method = " + sort;
   }
 
-  // http://localhost:8080/users
+  // POST @ http://localhost:8080/users
   @PostMapping(consumes = {
     MediaType.APPLICATION_XML_VALUE,
     MediaType.APPLICATION_JSON_VALUE
@@ -57,9 +58,22 @@ public class UserController {
     return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
-  @PutMapping
-  public String updateUser() {
-    return "update user called";
+  // PUT @ http://localhost:8080/users/{userID}
+  @PutMapping(path ="/{userID}", consumes = {
+    MediaType.APPLICATION_XML_VALUE,
+    MediaType.APPLICATION_JSON_VALUE
+  }, produces = {
+    MediaType.APPLICATION_XML_VALUE,
+    MediaType.APPLICATION_JSON_VALUE
+  })
+  public User updateUser(@PathVariable String userID, @Valid @RequestBody UpdateUserDetailsRequestModel userDetails) {
+    User storedUserDetails = users.get(userID);
+    storedUserDetails.setFirstName(userDetails.getFirstName());
+    storedUserDetails.setLastName(userDetails.getLastName());
+
+    users.put(userID, storedUserDetails);
+
+    return storedUserDetails;
   }
 
   @DeleteMapping
