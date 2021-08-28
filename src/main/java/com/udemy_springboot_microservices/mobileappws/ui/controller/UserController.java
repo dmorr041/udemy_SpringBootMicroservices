@@ -1,17 +1,21 @@
 package com.udemy_springboot_microservices.mobileappws.ui.controller;
 
 import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("users")   // http:localhost:8080/users
 public class UserController {
 
-  //http:localhost:8080/users/{userID}
+  // http:localhost:8080/users/{userID}
   @GetMapping(path = "/{userID}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-  public User getUser(@PathVariable String userID) {
-    return new User("Quinn", "Morrison", "dmorr041@fiu.edu");
+  public ResponseEntity<User> getUser(@PathVariable String userID) {
+    User user = new User("Quinn", "Morrison", "dmorr041@fiu.edu");
+    return new ResponseEntity<>(user, HttpStatus.OK);
+
   }
 
   // http://localhost:8080/users?page={page}&limit={limit}&sort={sort}
