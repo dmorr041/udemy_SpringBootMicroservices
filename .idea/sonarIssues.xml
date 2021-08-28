@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$USER_HOME$/ws_operationsexecution_mobile_carrier360Composite/src/main/java/com/jbhunt/carrier360/configuration/ClientConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/ws_operationsexecution_mobile_carrier360Composite/src/main/java/com/jbhunt/carrier360/service/usercoreinfo/UserCoreInfoService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
