@@ -1,5 +1,6 @@
 package com.udemy_springboot_microservices.mobileappws.ui.controller;
 
+import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,12 +16,12 @@ public class UserController {
 
   // http://localhost:8080/users?page={page}&limit={limit}&sort={sort}
   @GetMapping
-  public String getUsers(
+  public User getUsers(
     @RequestParam(value = "page", defaultValue = "1") int page,
     @RequestParam(value = "limit", defaultValue = "50") int limit,
     @RequestParam(value = "sort", defaultValue = "desc", required = false) String sort
   ) {
-    return "get user was called for page " + page + " with limit of " + limit + " and sorting method = " + sort;
+    return new User("Quinn", "Morrison", "dmorr041@fiu.edu");
   }
 
   @PostMapping

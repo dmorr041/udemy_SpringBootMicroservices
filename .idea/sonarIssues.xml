@@ -3,12 +3,22 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.gitignore">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/Maven.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
           </value>
@@ -23,12 +33,7 @@
             <set />
           </value>
         </entry>
-        <entry key="/Dummy.txt">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/MobileAppWsApplication.java">
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/response/User.java">
           <value>
             <set />
           </value>
