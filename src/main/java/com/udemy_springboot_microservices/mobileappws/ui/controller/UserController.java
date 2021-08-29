@@ -4,6 +4,10 @@ import com.udemy_springboot_microservices.mobileappws.exceptions.UserServiceExce
 import com.udemy_springboot_microservices.mobileappws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.request.UserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
+import com.udemy_springboot_microservices.mobileappws.userservice.UserService;
+import com.udemy_springboot_microservices.mobileappws.userservice.implementation.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +21,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("users")   // http:localhost:8080/users
 public class UserController {
-
   // Temporary solution when you don't want to spin up and connect a DB
   Map<String, User> users;
+
+  final UserService userService;
+
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
 
   // GET @ http:localhost:8080/users/{userID}
   @GetMapping(path = "/{userID}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
@@ -51,15 +60,7 @@ public class UserController {
     MediaType.APPLICATION_JSON_VALUE
   })
   public ResponseEntity<User> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
-    String userID = UUID.randomUUID().toString();
-    User user = new User(userDetails.getFirstName(), userDetails.getLastName(), userDetails.getEmail(), userID);
-
-    if(users == null) {
-      users = new HashMap<>();
-    }
-    users.put(userID, user);
-
-    return new ResponseEntity<>(user, HttpStatus.OK);
+    return new ResponseEntity<>(this.userService.createUser(userDetails), HttpStatus.OK);
   }
 
   // PUT @ http://localhost:8080/users/{userID}
