@@ -3,12 +3,77 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Maven.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/MobileAppWsApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/exceptions/ExceptionsHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/request/UpdateUserDetailsRequestModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/request/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/request/UserDetailsRequestModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/udemy_springboot_microservices/mobileappws/ui/model/response/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$USER_HOME$/ws_operationsexecution_mobile_carrier360Composite/src/main/java/com/jbhunt/carrier360/configuration/ClientConfiguration.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$USER_HOME$/ws_operationsexecution_mobile_carrier360Composite/src/main/java/com/jbhunt/carrier360/service/usercoreinfo/UserCoreInfoService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
           <value>
             <set />
           </value>
