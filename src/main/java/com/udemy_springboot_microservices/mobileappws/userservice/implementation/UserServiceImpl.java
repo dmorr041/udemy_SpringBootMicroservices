@@ -1,5 +1,6 @@
 package com.udemy_springboot_microservices.mobileappws.userservice.implementation;
 
+import com.udemy_springboot_microservices.mobileappws.shared.Utils;
 import com.udemy_springboot_microservices.mobileappws.ui.model.request.UserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
 import com.udemy_springboot_microservices.mobileappws.userservice.UserService;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User createUser(UserDetailsRequestModel userDetails) {
-    String userID = UUID.randomUUID().toString();
+    String userID = Utils.generateUserID();
     User user = new User(userDetails.getFirstName(), userDetails.getLastName(), userDetails.getEmail(), userID);
 
     if(users == null) {
