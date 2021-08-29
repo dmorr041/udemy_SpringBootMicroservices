@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService {
 
   Map<String, User> users;
 
+  // Testing Remote
   @Override
   public User createUser(UserDetailsRequestModel userDetails) {
     String userID = Utils.generateUserID();
