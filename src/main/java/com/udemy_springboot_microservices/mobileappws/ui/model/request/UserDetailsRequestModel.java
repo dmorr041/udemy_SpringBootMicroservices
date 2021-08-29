@@ -7,6 +7,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ *  This is the object you send to /users via createUser()
+ */
 @Data
 @AllArgsConstructor
 public class UserDetailsRequestModel {
@@ -22,6 +25,7 @@ public class UserDetailsRequestModel {
   @Email
   private String email;
 
+  // TODO: Change this to not be plain text
   @NotNull(message = "Password cannot be null")
   @Size(min = 8, max = 32, message = "Password must be between 8-32 characters")
   private String password;
