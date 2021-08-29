@@ -1,5 +1,6 @@
 package com.udemy_springboot_microservices.mobileappws.ui.controller;
 
+import com.udemy_springboot_microservices.mobileappws.exceptions.UserServiceException;
 import com.udemy_springboot_microservices.mobileappws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.request.UserDetailsRequestModel;
 import com.udemy_springboot_microservices.mobileappws.ui.model.response.User;
@@ -23,6 +24,9 @@ public class UserController {
   // GET @ http:localhost:8080/users/{userID}
   @GetMapping(path = "/{userID}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
   public ResponseEntity<User> getUser(@PathVariable String userID) {
+    if (true) throw new UserServiceException("A user service exception is thrown");
+
+
     return (users.containsKey(userID)
       ? new ResponseEntity<>(users.get(userID), HttpStatus.OK)
       : new ResponseEntity<>(HttpStatus.NO_CONTENT));
