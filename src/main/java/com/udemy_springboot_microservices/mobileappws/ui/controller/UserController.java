@@ -33,9 +33,6 @@ public class UserController {
   // GET @ http:localhost:8080/users/{userID}
   @GetMapping(path = "/{userID}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
   public ResponseEntity<User> getUser(@PathVariable String userID) {
-    if (true) throw new UserServiceException("A user service exception is thrown");
-
-
     return (users.containsKey(userID)
       ? new ResponseEntity<>(users.get(userID), HttpStatus.OK)
       : new ResponseEntity<>(HttpStatus.NO_CONTENT));
